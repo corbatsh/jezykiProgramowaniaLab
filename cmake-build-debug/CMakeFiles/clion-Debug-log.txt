@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /Users/kamilbortlik/CLionProjects/jezykiProgramowaniaLab Select CMakeLists.txt
