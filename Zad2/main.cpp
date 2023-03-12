@@ -39,5 +39,6 @@ int main() {
     for (i=0; i<n; i++)
         cout << *tab1++ << endl; // wyjscie poza zakres, bo wyszlo juz wczesniej
 
+        cout << "test";
     return 0;
 }
