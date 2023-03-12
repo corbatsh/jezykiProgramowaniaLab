@@ -41,4 +41,10 @@ int main() {
 
         cout << "test";
     return 0;
+
+    /*
+     * Zadanie domowe:
+     * Zakładając istnienie n-elementowej tablicy z danymi, wczytać wartość szukaną i jednokrotnym komunikatem
+     * stwierdzić czy szukana występuje w tablicy czy nie.
+     */
 }
