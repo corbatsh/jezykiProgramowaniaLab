@@ -39,12 +39,13 @@ int main() {
     for (i=0; i<n; i++)
         cout << *tab1++ << endl; // wyjscie poza zakres, bo wyszlo juz wczesniej
 
-        cout << "test";
-    return 0;
-
     /*
      * Zadanie domowe:
      * Zakładając istnienie n-elementowej tablicy z danymi, wczytać wartość szukaną i jednokrotnym komunikatem
      * stwierdzić czy szukana występuje w tablicy czy nie.
      */
+
+    cout << endl << "ZADANIE DOMOWE" << endl;
+
+    return 0;
 }
