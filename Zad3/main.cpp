@@ -45,17 +45,27 @@ int main() {
 //        cout << "wystapila szukana liczba";
 
     //2 sposob
-    do
-    {
-        if (t[i] == szukana)
-            i = N; // jesli znajdzie to zmieni wartosc i na N, czyli wypisze ze znajdzie
-        i++; // doda jeden na ostatnim indexie przez co wyjdzie za zakres i bedzie 11, wypisze ze nie ma
-    } while (i < N);
-    if(i == N)
-        cout << "Nie ma";
-    else
-        cout << "Jest";
+//    do
+//    {
+//        if (t[i] == szukana)
+//            i = N; // jesli znajdzie to zmieni wartosc i na N, czyli wypisze ze znajdzie
+//        i++; // doda jeden na ostatnim indexie przez co wyjdzie za zakres i bedzie 11, wypisze ze nie ma
+//    } while (i < N);
+//    if(i == N)
+//        cout << "Nie ma";
+//    else
+//        cout << "Jest";
+
+    // zadanie jak wyzej - jest czy nie ma, ale wiemy, że tablica jest posortowana rosnąco.
     //koniec algorytmu
+
+    /*
+     * 1 indeks tablicy to lewa strona, ostatni indeks to prawa strona.
+     * brac srednia z tego i na tej podstawie wyliczamy srodkowy indeks, przy okazji
+     * sprawdzamy czy szukana jest rowna srodkowemu. Jesli jest wiekszy to indeks przesuwamy w prawo
+     * jesli jest mniejszy to przesuwamy w lewo. W przedbiegach można sprawdzić czy szukana jest mniejsza niz 1 indeks
+     * lub czy jest wieksza niz ostatni indeks
+     */
 
     //tu ewentualnie wyniki, komunikaty...
 
