@@ -31,17 +31,30 @@ int main() {
     cin >> szukana;
     znaleziono = false;
     i = 0;
+    //1 sposob
+//    do
+//    {
+//        if (t[i] == szukana)
+//            znaleziono = true;
+//        i++;
+//    } while (!znaleziono && i < N);
+//
+//    if (!znaleziono)
+//        cout << "nie wystapila szukana liczba";
+//    else
+//        cout << "wystapila szukana liczba";
+
+    //2 sposob
     do
     {
         if (t[i] == szukana)
-            znaleziono = true;
+            i = N;
         i++;
-    } while (!znaleziono && i < N);
-
-    if (!znaleziono)
-        cout << "nie wystapila szukana liczba";
+    } while (i < N);
+    if(i == N)
+        cout << "Nie ma";
     else
-        cout << "wystapila szukana liczba";
+        cout << "Jest";
     //koniec algorytmu
 
     //tu ewentualnie wyniki, komunikaty...
