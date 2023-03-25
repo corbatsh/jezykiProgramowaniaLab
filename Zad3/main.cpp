@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    int t[N]; //będą zmiany na float
+    int t[N+1]; //będą zmiany na float
     int i, szukana, min, ind; //inne zmienne w miarę potrzeby
     bool znaleziono;
 
@@ -14,15 +14,20 @@ int main() {
 
     //poniżej generowanie danych
     srand(time(NULL));
-    for (i = 0; i < N; i++) {
+    for (i = 1; i <= N; i++) {
         //cout << "t[" << i << "]=";
         //cin >> t[i];
-        //t[i] = rand() % 32700;
+        t[i] = rand() % 327;
 
         //t[i]=i;
-          t[i]=-i;
+        //t[i]=-i;
         //  t[i]=5;
         //cout << "tpyrka[" << i << "]=" << t[i] << endl;
+    }
+    for (int i = 1; i <= N; i++)
+    {
+        cout << i << " ";
+        cout << t[i] << endl;
     }
 
     //poniżej testowany algorytm
@@ -85,8 +90,8 @@ int main() {
     for (int nr = 1; nr < N; nr++)
     {
         ind = nr;
-        min = nr;
-        for (i = nr+1; i < N; i++) {
+        min = t[nr];
+        for (i = nr+1; i <= N; i++) {
             if (min > t[i]) {
                 min = t[i];
                 ind = i;
@@ -96,9 +101,10 @@ int main() {
         t[nr] = min;
     }
 
-    for (int i = 1; i < N-1; i++)
+    for (int i = 1; i <= N; i++)
     {
-        cout << t[i] << endl;
+        cout << "indeks: " << i << " ";
+        cout << "wartosc: " << t[i] << endl;
     }
 
     /*
