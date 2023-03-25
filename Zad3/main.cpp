@@ -101,6 +101,14 @@ int main() {
         cout << t[i] << endl;
     }
 
+    /*
+     * Do powyzszego zadania mamy zlozonosci obliczeniowe:
+     * opt: O(N^2)
+     * ocz: O(N^2)
+     * pes: O(N^2)
+     * Ta metoda ma bardzo małe odchyłki między optymistycznym a pesymistycznym
+     */
+
     //Z.D zadanie jak wyzej - jest czy nie ma, ale wiemy, że tablica jest posortowana rosnąco.
     //koniec algorytmu
 
