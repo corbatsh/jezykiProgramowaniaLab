@@ -58,19 +58,29 @@ int main() {
 
 //Jest tablica z danymi, trzeba wyszukac wartosc najmniejsza i wypisać ją wraz z indeksem
 //zakładamy, że elementy się nie powtarzają
-    i = 0;
+//    i = 0;
+//    min = t[i];
+//    minIndex = i;
+//    do
+//    {
+//        if (t[i] < min)
+//        {
+//            min = t[i];
+//            minIndex = i;
+//        }
+//        i++;
+//
+//    } while (i < N);
+
     min = t[0];
-    minIndex = i;
-    do
+    for (i = 0; i < N; i++)
     {
-        if (t[i] < min)
+        if(min > t[i])
         {
             min = t[i];
             minIndex = i;
         }
-        i++;
-
-    } while (i < N);
+    }
     cout << "Najmniejszy element to " << min << " z indeksem " << minIndex;
 
     // zadanie jak wyzej - jest czy nie ma, ale wiemy, że tablica jest posortowana rosnąco.
