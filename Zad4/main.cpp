@@ -41,6 +41,18 @@ bool pole_obw2(float a, float b, float &p, float &o)
     return true;
 }
 
+int pole_obw3(float a, float b, float &p, float &o)
+{
+    int kod = 0;
+    if (a <= 0 )
+        kod++;
+    if (b <= 0)
+        kod+=2;
+    p=a*b;
+    o=2*a+2*b;
+    return kod;
+}
+
 int main() {
 
     float aa, bb, pole, obwod;
@@ -77,8 +89,29 @@ int main() {
         cout << "Obw = " << obwod << endl;
     }
     else
-        cout << "Co najmniej jeden bok zly";
+        cout << "Co najmniej jeden bok zly" << endl;
     // te funkcje nie maja uprawnien do pracy z interfejsem (klawiatura, ekran itp..)
     // gdyby tak było, nie mają przyszłości. Nie zastosuję ich w żadnych innych programach
+
+    //3 sposob bazujacy na kodach
+
+    cout << endl << "switch:" << endl << endl;
+
+    switch( pole_obw3(aa, bb, pole, obwod) )
+    {
+        case 0:
+            cout << "Pole = " << pole << endl;
+            cout << "Obw = " << obwod << endl;
+            break;
+        case 1:
+            cout << "Bok a jest nieprawidlowy" << endl;
+            break;
+        case 2:
+            cout << "Bok b jest nieprawidlowy" << endl;
+            break;
+        case 3:
+            cout << "Oba boki sa nieprawidlwe" << endl;
+            break;
+    }
     return 0;
 }
