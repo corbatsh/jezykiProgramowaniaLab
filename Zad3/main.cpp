@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
     int t[N]; //będą zmiany na float
-    int i, szukana; //inne zmienne w miarę potrzeby
+    int i, szukana, min, minIndex; //inne zmienne w miarę potrzeby
     bool znaleziono;
 
     cout << "Program testuje algorytm ............" << endl;
@@ -15,22 +15,22 @@ int main() {
     //poniżej generowanie danych
     srand(time(NULL));
     for (i = 0; i < N; i++) {
-        cout << "t[" << i << "]=";
-        cin >> t[i];
+        //cout << "t[" << i << "]=";
+        //cin >> t[i];
         //t[i] = rand() % 32700;
 
-        //  t[i]=i;
-        //  t[i]=-i;
+        //t[i]=i;
+          t[i]=-i;
         //  t[i]=5;
         //cout << "tpyrka[" << i << "]=" << t[i] << endl;
     }
 
     //poniżej testowany algorytm
 
-    cout << "podaj szukana: ";
-    cin >> szukana;
-    znaleziono = false;
-    i = 0;
+    //cout << "podaj szukana: ";
+    //cin >> szukana;
+    //znaleziono = false;
+    //i = 0;
     //1 sposob
 //    do
 //    {
@@ -55,6 +55,23 @@ int main() {
 //        cout << "Nie ma";
 //    else
 //        cout << "Jest";
+
+//Jest tablica z danymi, trzeba wyszukac wartosc najmniejsza i wypisać ją wraz z indeksem
+//zakładamy, że elementy się nie powtarzają
+    i = 0;
+    min = t[0];
+    minIndex = i;
+    do
+    {
+        if (t[i] < min)
+        {
+            min = t[i];
+            minIndex = i;
+        }
+        i++;
+
+    } while (i < N);
+    cout << "Najmniejszy element to " << min << " z indeksem " << minIndex;
 
     // zadanie jak wyzej - jest czy nie ma, ale wiemy, że tablica jest posortowana rosnąco.
     //koniec algorytmu
