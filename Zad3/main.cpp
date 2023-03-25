@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
     int t[N]; //będą zmiany na float
-    int i, szukana, min, minIndex; //inne zmienne w miarę potrzeby
+    int i, szukana, min, ind; //inne zmienne w miarę potrzeby
     bool znaleziono;
 
     cout << "Program testuje algorytm ............" << endl;
@@ -60,30 +60,48 @@ int main() {
 //zakładamy, że elementy się nie powtarzają
 //    i = 0;
 //    min = t[i];
-//    minIndex = i;
+//    ind = i;
 //    do
 //    {
+//      i++;
 //        if (t[i] < min)
 //        {
 //            min = t[i];
-//            minIndex = i;
+//            ind = i;
 //        }
-//        i++;
-//
 //    } while (i < N);
 
-    min = t[0];
-    for (i = 0; i < N; i++)
-    {
-        if(min > t[i])
-        {
-            min = t[i];
-            minIndex = i;
-        }
-    }
-    cout << "Najmniejszy element to " << min << " z indeksem " << minIndex;
+//    min = t[0];
+//    for (i = 1; i < N; i++) // optymistyczny wariant bedzie taki, że 1 liczba będzie najmniejsza O(N)
+//    {                       // pesymistyczny wariant to taki, że będzie to ciąg malejący O(N)
+//        if(min > t[i])      // oczekiwany wariant to taki, że O(N)
+//        {
+//            min = t[i];
+//            ind = i;
+//        }
+//    }
+//    cout << "Najmniejszy element to " << min << " z indeksem " << ind;
 
-    // zadanie jak wyzej - jest czy nie ma, ale wiemy, że tablica jest posortowana rosnąco.
+    for (int nr = 1; nr < N; nr++)
+    {
+        ind = nr;
+        min = nr;
+        for (i = nr+1; i < N; i++) {
+            if (min > t[i]) {
+                min = t[i];
+                ind = i;
+            }
+        }
+        t[ind] = t[nr];
+        t[nr] = min;
+    }
+
+    for (int i = 1; i < N-1; i++)
+    {
+        cout << t[i] << endl;
+    }
+
+    //Z.D zadanie jak wyzej - jest czy nie ma, ale wiemy, że tablica jest posortowana rosnąco.
     //koniec algorytmu
 
     /*
@@ -94,6 +112,11 @@ int main() {
      * lub czy jest wieksza niz ostatni indeks
      */
 
+    /*
+     * ZD:
+     * Zakładając, że elementy mogą się powtarzać, wyszukaj i wypisz wartość najmniejszą wraz z indeksami, pod
+     * którymi występuje i analogicznie największą z indeksami.
+     */
     //tu ewentualnie wyniki, komunikaty...
 
     return 0;
