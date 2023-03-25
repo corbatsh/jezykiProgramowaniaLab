@@ -48,8 +48,8 @@ int main() {
     do
     {
         if (t[i] == szukana)
-            i = N;
-        i++;
+            i = N; // jesli znajdzie to zmieni wartosc i na N, czyli wypisze ze znajdzie
+        i++; // doda jeden na ostatnim indexie przez co wyjdzie za zakres i bedzie 11, wypisze ze nie ma
     } while (i < N);
     if(i == N)
         cout << "Nie ma";
