@@ -8,6 +8,7 @@ void pole_obw1(float a, float b, float &p, float &o);
 bool pole_obw2(float a, float b, float &p, float &o);
 int pole_obw3(float a, float b, float &p, float &o);
 int pole_obw4(float a, float b, float *p, float *o);
+__int64_t silnia(__int64_t n);
 //void gotoxy(int x, int y)
 //{
 //    COORD c;
@@ -30,6 +31,7 @@ int main() {
 
     float aa, bb, pole, obwod; //*pole, *obwod;
     float *pole2, *obwod2;
+    __int64_t sil, n;
     pole2 = new float;
     obwod2 = new float;
 //    gotoxy(15,2);
@@ -126,6 +128,10 @@ int main() {
             cout << "Oba boki sa nieprawidlwe" << endl;
             break;
     }
+    cout << endl << "Liczymy silnie. Podaj n = ";
+    cin >> n;
+    sil = silnia(n);
+    cout << endl << "silnia wynosi: " << sil;
 
     return 0;
 }
@@ -173,4 +179,12 @@ int pole_obw4(float a, float b, float *p, float *o)
     *p=a*b;
     *o=2*a+2*b;
     return kod;
+}
+
+__int64_t silnia(__int64_t n)
+{
+    __int64_t si = 1;
+    for (; n > 1; n--)
+        si *= n;
+    return si;
 }
