@@ -3,6 +3,11 @@
 #include <ctime>
 
 using namespace std;
+float pole_prostokata(float a, float b);
+void pole_obw1(float a, float b, float &p, float &o);
+bool pole_obw2(float a, float b, float &p, float &o);
+int pole_obw3(float a, float b, float &p, float &o);
+int pole_obw4(float a, float b, float *p, float *o);
 //void gotoxy(int x, int y)
 //{
 //    COORD c;
@@ -20,42 +25,13 @@ using namespace std;
 //w trakcie tworzenia funkcji nie wiemy co tam trafi, więc poniższe parametry nazywa się parametrami
 // formalnymi. Mogą być tutaj przekazywane zmienne, stałe, definiowane lub wyrażenia. Tutaj są to
 // parametry przekazywane przez wartość.
-float pole_prostokata(float a, float b)
-{
-    return a*b;
-}
-
-void pole_obw1(float a, float b, float &p, float &o)
-{
-    p=a*b;
-    o=2*a+2*b;
-}
-
-//kolejna wersja
-bool pole_obw2(float a, float b, float &p, float &o)
-{
-    if (a <= 0 || b<=0)
-        return false;
-    p=a*b;
-    o=2*a+2*b;
-    return true;
-}
-
-int pole_obw3(float a, float b, float &p, float &o)
-{
-    int kod = 0;
-    if (a <= 0 )
-        kod++;
-    if (b <= 0)
-        kod+=2;
-    p=a*b;
-    o=2*a+2*b;
-    return kod;
-}
 
 int main() {
 
-    float aa, bb, pole, obwod;
+    float aa, bb, pole, obwod; //*pole, *obwod;
+    float *pole2, *obwod2;
+    pole2 = new float;
+    obwod2 = new float;
 //    gotoxy(15,2);
     cout << "Program funkcje 1" << endl;
 //    klawisz();
@@ -113,5 +89,88 @@ int main() {
             cout << "Oba boki sa nieprawidlwe" << endl;
             break;
     }
+
+    cout << endl << "switch2:" << endl << endl;
+    switch( pole_obw4(aa, bb, &pole, &obwod) ) //..., pole, obwod) )
+    {
+        case 0:
+            cout << "Pole = " << pole << endl; //*pole
+            cout << "Obw = " << obwod << endl; //*obwod
+            break;
+        case 1:
+            cout << "Bok a jest nieprawidlowy" << endl;
+            break;
+        case 2:
+            cout << "Bok b jest nieprawidlowy" << endl;
+            break;
+        case 3:
+            cout << "Oba boki sa nieprawidlwe" << endl;
+            break;
+    }
+
+    cout << endl << "switch na wskaznikach:" << endl << endl;
+
+    switch( pole_obw4(aa, bb, pole2, obwod2) )
+    {
+        case 0:
+            cout << "Pole = " << pole << endl;
+            cout << "Obw = " << obwod << endl;
+            break;
+        case 1:
+            cout << "Bok a jest nieprawidlowy" << endl;
+            break;
+        case 2:
+            cout << "Bok b jest nieprawidlowy" << endl;
+            break;
+        case 3:
+            cout << "Oba boki sa nieprawidlwe" << endl;
+            break;
+    }
+
     return 0;
+}
+
+float pole_prostokata(float a, float b)
+{
+    return a*b;
+}
+
+void pole_obw1(float a, float b, float &p, float &o)
+{
+    p=a*b;
+    o=2*a+2*b;
+}
+
+//kolejna wersja
+bool pole_obw2(float a, float b, float &p, float &o)
+{
+    if (a <= 0 || b<=0)
+        return false;
+    p=a*b;
+    o=2*a+2*b;
+    return true;
+}
+
+int pole_obw3(float a, float b, float &p, float &o)
+{
+    int kod = 0;
+    if (a <= 0 )
+        kod++;
+    if (b <= 0)
+        kod+=2;
+    p=a*b;
+    o=2*a+2*b;
+    return kod;
+}
+
+int pole_obw4(float a, float b, float *p, float *o)
+{
+    int kod = 0;
+    if (a <= 0 )
+        kod++;
+    if (b <= 0)
+        kod+=2;
+    *p=a*b;
+    *o=2*a+2*b;
+    return kod;
 }
