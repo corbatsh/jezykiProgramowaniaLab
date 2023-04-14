@@ -21,7 +21,7 @@ int srednia(int a, int b);
 using namespace std;
 int main() {
 
-    int lewaStrona = 0, prawaStrona = N, t[N], szukana = 53, i = 0, index = 0, srodkowyIndeks, minValue, minIndex, maxValue, maxIndex;
+    int lewaStrona = 0, prawaStrona = N-1, t[N], szukana = 59, i = 0, index = 0, srodkowyIndeks, minValue, minIndex, maxValue, maxIndex;
     for (; i < N; i++)
     {
         t[i] = i + 50;
@@ -79,5 +79,5 @@ int main() {
     return 0;
 }
 int srednia(int a, int b) {
-    return (a+b)/2;
+    return (a+b+1)/2;
 };
